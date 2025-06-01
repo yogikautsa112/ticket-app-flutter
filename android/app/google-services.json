@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "368708347363",
+    "project_id": "ujikel",
+    "storage_bucket": "ujikel.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:368708347363:android:525667bdf028d54464acd6",
+        "android_client_info": {
+          "package_name": "com.example.ujikel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwSaw6PyxnEZc5FKDooBlY_JZ5KdsdM2o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
