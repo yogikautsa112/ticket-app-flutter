@@ -5,7 +5,7 @@ import 'package:intl/date_symbol_data_local.dart';
 class PaymentPage extends StatelessWidget {
   final String title;
   final double price;
-  final DateTime date; // Changed to DateTime for better intl formatting
+  final DateTime date;
 
   const PaymentPage({
     super.key,
@@ -22,11 +22,9 @@ class PaymentPage extends StatelessWidget {
   }
 
   String _formatDate(DateTime date) {
-    // Format tanggal menggunakan intl dengan fallback jika locale belum diinisialisasi
     try {
       return DateFormat('dd MMMM yyyy', 'id_ID').format(date);
     } catch (e) {
-      // Fallback ke format default jika locale Indonesia tidak tersedia
       return DateFormat('dd MMMM yyyy').format(date);
     }
   }
@@ -145,7 +143,7 @@ class PaymentPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      _formatDate(date), // Using intl formatting
+                      _formatDate(date),
                       style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w500,
@@ -272,7 +270,6 @@ class PaymentPage extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 20),
-              // Icon besar sesuai metode pembayaran
               if (method == 'Tunai') ...[
                 Container(
                   width: 80,
@@ -631,7 +628,6 @@ class PaymentPage extends StatelessWidget {
   }
 
   void _showDownloadSuccessSnackBar(BuildContext context) {
-    // Show custom SnackBar with success message
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Row(
