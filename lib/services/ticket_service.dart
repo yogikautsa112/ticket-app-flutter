@@ -22,9 +22,10 @@ class Ticket {
       id: id,
       title: map['title']?.toString() ?? '',
       type: map['type']?.toString() ?? '',
-      price: (map['price'] is int)
-          ? (map['price'] as int).toDouble()
-          : (map['price'] as num?)?.toDouble() ?? 0.0,
+      price:
+          (map['price'] is int)
+              ? (map['price'] as int).toDouble()
+              : (map['price'] as num?)?.toDouble() ?? 0.0,
     );
   }
 }
@@ -42,5 +43,25 @@ class TicketService {
       print('Error getting tickets: $e');
       return [];
     }
+  }
+
+  Future<String> payments({
+    required String title,
+    required double price,
+    required String type,
+    required String paymentMethod,
+    required DateTime date,
+  }) async {
+    final payment = await _firestore.collection('payments').add({
+      'title': title,
+      'price': price,
+      'type': type,
+      'paymentMethod': paymentMethod,
+      'date': date,
+      'status': 'completed',
+      'createdAt': FieldValue.serverTimestamp(),
+    });
+
+    return payment.id;
   }
 }

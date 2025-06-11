@@ -130,7 +130,8 @@ class _CashierPageState extends State<CashierPage> {
                           MaterialPageRoute(
                             builder: (context) => PaymentPage(
                               title: ticket.title,
-                              price: ticket.price,
+                              price: ticket.price.toDouble(),
+                              type: ticket.type,
                               date: DateTime.now(),
                             ),
                           ),
